@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/searchFieldEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="#e0f7fa"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="Enter query you want to search"
+            android:inputType="textPersonName"
+            android:textColor="#673AB7"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/searchViaField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="35dp"
+            android:background="#e0f7fa"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="Enter field for the above query"
+            android:inputType="textPersonName"
+            android:textColor="#673AB7"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:capitalize="none"
+            android:ellipsize="none"
+            android:text="Search Documents"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/scrollSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/tvSearch4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Document Queries"
+                android:textColor="#007c91"
+                android:textSize="24sp" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
