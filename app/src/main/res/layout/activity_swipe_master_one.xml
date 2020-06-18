@@ -24,5 +24,39 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/white" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="560dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/LikeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="#E91E63"
+            android:onClick="showLikes"
+            android:text="Total Likes"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/DisLikeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="#448AFF"
+            android:onClick="showDislikes"
+            android:text="Total Dislikes"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
 
 </RelativeLayout>

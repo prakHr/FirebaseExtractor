@@ -1,27 +1,56 @@
 package com.example.extractor2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
+import java.util.Objects;
+
 public class SwipeMasterActivityFour extends SwipeActivityClass {
+
+    private static final String TAG="Swipemaster activity4:";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_master_four);
+      }
+    public void showLikes(View v){
+        Intent intent;
+        intent = new Intent(SwipeMasterActivityFour.this, SwipeMasterLikeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("flag",true);
+        startActivity(intent);
+        finish();
+
+
+    }
+    public void showDislikes(View v){
+        Intent intent;
+        intent = new Intent(SwipeMasterActivityFour.this, SwipeMasterLikeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("flag",false);
+        startActivity(intent);
+        finish();
+
+
     }
     public void showCustomToast(String message) {
         View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup) findViewById(R.id.linlay));
@@ -61,7 +90,7 @@ public class SwipeMasterActivityFour extends SwipeActivityClass {
         db.setFirestoreSettings(settings);
         DocumentReference markZuckerbergRef=db.collection("likes").document("markZuckerberg");
 
-        markZuckerbergRef.update("dislike", FieldValue.increment(-1)) ;
+        markZuckerbergRef.update("dislike", FieldValue.increment(1)) ;
 
         showCustomToast("You makes us sit all the time at fb!");
         Intent intent;

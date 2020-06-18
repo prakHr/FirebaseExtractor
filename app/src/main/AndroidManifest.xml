@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SwipeMasterActivityFour"></activity>
+        <activity android:name=".SwipeMasterLikeActivity"></activity>
+        <activity android:name=".SwipeMasterActivityFour" />
         <activity android:name=".SwipeMasterActivityThree" />
         <activity android:name=".SwipeMasterActivityTwo" />
         <activity android:name=".SwipeMasterActivityOne" />

@@ -2,26 +2,62 @@ package com.example.extractor2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Map;
+import java.util.Set;
 
 public class SwipeMasterActivity<zzu> extends SwipeActivityClass {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_master);
+
+
     }
+    public void showLikes(View v){
+        Intent intent;
+        intent = new Intent(SwipeMasterActivity.this, SwipeMasterLikeActivity.class);
+        intent.putExtra("flag",true);
+        startActivity(intent);
+        this.finish();
+
+
+    }
+    public void showDislikes(View v){
+        Intent intent;
+        intent = new Intent(SwipeMasterActivity.this, SwipeMasterLikeActivity.class);
+        intent.putExtra("flag",false);
+        startActivity(intent);
+        this.finish();
+
+
+    }
+
+
     public void showCustomToast(String message) {
         View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup) findViewById(R.id.linlay));
         TextView tvToast = (TextView) toastView.findViewById(R.id.tvToast);
@@ -65,7 +101,7 @@ public class SwipeMasterActivity<zzu> extends SwipeActivityClass {
         db.setFirestoreSettings(settings);
         DocumentReference adolfHitlerRef=db.collection("likes").document("adolfHitler");
 
-        adolfHitlerRef.update("dislike",FieldValue.increment(-1)) ;
+        adolfHitlerRef.update("dislike",FieldValue.increment(1)) ;
 
         //on Swiping right we disliked the guy
         showCustomToast("Hope Hitler got hit by red angry bird! ");
